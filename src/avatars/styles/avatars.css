@@ -1,1 +1,54 @@
 /* 여기에 스타일을 구현해 주세요 */
+.profile-link {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  display: block;
+  object-fit: cover;
+}
+
+.img-container {
+  padding: 100px;
+  position: relative;
+  width: 350px;
+  background-color: #ffffff;
+}
+
+.img-wrapper {
+  object-fit: cover;
+  position: relative;
+  display: inline-block;
+}
+
+.img-wrapper img {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  padding: 10px;
+}
+
+.online {
+  position: absolute;
+  bottom: 12px;
+  right: 7px;
+  width: 18px;
+  height: 18px;
+  background-color: #03cc5c;
+  border-radius: 50%;
+  border: 1px solid white;
+  font-size: 0px;
+  box-sizing: border-box;
+}
+
+.offline {
+  position: absolute;
+  bottom: 12px;
+  right: 7px;
+  width: 18px;
+  height: 18px;
+  background-color: #bcc3d7;
+  border-radius: 50%;
+  border: 1px solid white;
+  font-size: 0px;
+  box-sizing: border-box;
+}
