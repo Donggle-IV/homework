@@ -1,1 +1,232 @@
 /* CSS를 활용하여 레이아웃 및 스타일링을 완성해주세요 */
+
+:root {
+  --theme-color: #03cf5d;
+  --font-color: #121212;
+  --font-size: 1rem;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  border-width: 0;
+  white-space: nowrap;
+}
+
+body {
+  padding: 5.625rem 0 0 0;
+
+  @media screen and (min-width: 48rem) {
+    width: 31.25rem;
+    padding: 5.625rem 1.25rem 0 1.25rem;
+    margin: 0 auto;
+    box-sizing: border-box;
+  }
+
+  .main-logo {
+    display: block;
+    margin: 0 auto;
+    width: 230px;
+  }
+
+  .login-input-container {
+    width: calc(100% - 2.5rem);
+    margin: 3.125rem auto 0px;
+
+    .input-wrapper {
+      width: 100%;
+
+      .input-field {
+        position: relative;
+        margin-bottom: 0.625rem;
+      }
+
+      input {
+        display: block;
+        width: 100%;
+        height: 2.8125rem;
+        font-size: 0.875rem;
+        padding: 0 0.75rem;
+        box-sizing: border-box;
+        color: var(--font-color);
+        border: 0.0625rem solid #dadada;
+        background-color: white;
+        outline: none;
+      }
+
+      input:focus {
+        border-color: var(--theme-color);
+        background-color: #e9f0fd;
+      }
+
+      .error-message {
+        display: none;
+        font-size: calc(var(--font-size) * 0.75);
+        color: #ff8200;
+        padding-left: 1.25rem;
+        position: relative;
+        margin-top: 0.0625rem;
+      }
+
+      .input-field .error-message {
+        display: none;
+      }
+
+      .input-field input:invalid:not(:focus):not(:placeholder-shown) + .error-message {
+        display: block;
+      }
+    }
+
+    .login-button {
+      display: block;
+      width: 100%;
+      height: 2.8125rem;
+      font-size: 1rem;
+      color: white;
+      font-weight: bold;
+      background-color: var(--theme-color);
+      border: none;
+      margin-top: 1.25rem;
+    }
+
+    .switch-ui-container {
+      width: 100%;
+      margin-top: 0.625rem;
+      position: relative;
+
+      .login-checkbox {
+        float: right;
+
+        @media screen and (min-width: 48rem) {
+          float: left;
+        }
+      }
+
+      .ip-security-wrapper {
+        display: none;
+
+        @media screen and (min-width: 48rem) {
+          float: right;
+        }
+      }
+
+      .login-checkbox {
+        display: inline-block;
+        font-size: var(--font-size);
+        position: relative;
+
+        .custom-checkbox {
+          position: absolute;
+          opacity: 0;
+          cursor: pointer;
+          height: 0;
+          width: 0;
+        }
+
+        .custom-checkbox:focus-visible + label {
+          outline: 0.0625rem solid var(--font-color);
+          outline-offset: 0.125rem;
+        }
+
+        .custom-checkbox:focus:not(:focus-visible) + label {
+          outline: none;
+        }
+
+        label {
+          display: flex;
+          align-items: center;
+          cursor: pointer;
+        }
+
+        .checkbox-icon {
+          margin-right: 0.3125rem;
+          display: inline-block;
+          position: relative;
+          width: 1.5rem;
+          height: 1.5rem;
+        }
+
+        .checkbox-svg {
+          position: absolute;
+          top: 0;
+          left: 0;
+          display: none;
+
+          &.unchecked {
+            display: inline-block;
+          }
+        }
+
+        .custom-checkbox:checked + label {
+          .checkbox-svg.checked {
+            display: inline-block;
+          }
+
+          .checkbox-svg.unchecked {
+            display: none;
+          }
+        }
+      }
+
+      .ip-security-wrapper {
+        display: none;
+
+        @media screen and (min-width: 48rem) {
+          display: inline-block;
+          text-align: right;
+
+          .ip-security {
+            display: inline-block;
+            font-size: var(--font-size);
+            font-weight: bold;
+            color: var(--font-color);
+            text-decoration: none;
+            margin-right: 0.1875rem;
+          }
+
+          .ip-status-toggle {
+            position: relative;
+            display: inline-block;
+
+            .ip-status-checkbox {
+              position: absolute;
+              opacity: 0;
+              width: 0;
+              height: 0;
+            }
+
+            .ip-status-checkbox:focus-visible + label {
+              outline: 0.0625rem solid var(--font-color);
+              outline-offset: 0.125rem;
+            }
+
+            .ip-status-checkbox:focus:not(:focus-visible) + label {
+              outline: none;
+            }
+
+            label {
+              font-size: var(--font-size);
+              font-weight: bold;
+              cursor: pointer;
+              color: #999;
+
+              &::after {
+                content: 'OFF';
+              }
+            }
+
+            .ip-status-checkbox:checked + label::after {
+              content: 'ON';
+              color: var(--theme-color);
+            }
+          }
+        }
+      }
+    }
+  }
+}
